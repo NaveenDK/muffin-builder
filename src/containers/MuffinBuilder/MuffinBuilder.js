@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Auxiliary';
+import Muffin from '../../components/Muffin/Muffin';
 
 class MuffinBuilder extends Component{
     render(){
         return(
             <>
-              <div>Muffin</div>
+              <Muffin/>
               <div>Base Controls</div>
             </>
         );
