@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Muffin from '../../components/Muffin/Muffin';
-import BaseControls from '../../components/Muffin/BaseControls/BaseControls'
+import BaseControls from '../../components/Muffin/BaseControls/BaseControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Muffin/OrderSummary/OrderSummary';
 
 const INGREDIENT_PRICES = {
     salad : 0.5,
@@ -25,7 +27,8 @@ class MuffinBuilder extends Component{
             meat:0
         },
         totalPrice:4,
-        purchaseable: false
+        purchaseable: false,
+        purchasing:false
     }
 
     updatePurchaseState(ingredients){
@@ -73,7 +76,11 @@ class MuffinBuilder extends Component{
         this.updatePurchaseState(updatedIngredients);
     }
  
-
+ purchaseHandler =()=>{
+      this.setState({
+          purchasing:true
+      });
+ }
     render(){
         const disabledInfo ={
             ...this.state.ingredients
@@ -84,12 +91,16 @@ class MuffinBuilder extends Component{
 
         return(
             <>
+              <Modal show={this.state.purchasing}>
+                  <OrderSummary ingredients={this.state.ingredients}/>
+              </Modal>
               <Muffin ingredients={this.state.ingredients}/>
               <BaseControls ingredientAdded={this.addIngredientHandler}
                   ingredientRemoved={this.removeIngredientHandler}
                  disabled={disabledInfo}
                  purchasable ={this.state.purchasable}
                  price ={this.state.totalPrice}
+                 ordered = {this.purchaseHandler}
               />
             </>
         );
