@@ -12,7 +12,10 @@ const controls=[
 const baseControls = (props) =>(
  <div className={classes.BaseControls}>
    {controls.map(ctrl=>(
-       <BaseControl key={ctrl.label} label={ctrl.label}/>
+       <BaseControl 
+       key={ctrl.label} 
+       label={ctrl.label}  
+       added={() => props.ingredientAdded(ctrl.type)}/>
    ))}
  </div>
 );

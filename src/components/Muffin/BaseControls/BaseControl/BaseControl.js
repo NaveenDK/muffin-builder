@@ -7,7 +7,7 @@ const baseControl = (props) =>(
           {props.label}
       </div>
       <button className={classes.Less}>Less</button>
-      <button className={classes.More}>More</button>
+      <button className={classes.More} >More</button>
 
   </div>
 );
