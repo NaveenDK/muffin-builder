@@ -11,6 +11,7 @@ const controls=[
 
 const baseControls = (props) =>(
  <div className={classes.BaseControls}>
+   <p>Current price: <strong>{props.price.toFixed(2)}</strong></p>
    {controls.map(ctrl=>(
        <BaseControl 
        key={ctrl.label} 
