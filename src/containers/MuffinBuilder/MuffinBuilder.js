@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Muffin from '../../components/Muffin/Muffin';
-
+import BaseControls from '../../components/Muffin/BaseControls/BaseControls'
 class MuffinBuilder extends Component{
     // constructor(props){
     //     super(props);
@@ -22,7 +22,7 @@ class MuffinBuilder extends Component{
         return(
             <>
               <Muffin ingredients={this.state.ingredients}/>
-              <div>Base Controls</div>
+              <BaseControls/>
             </>
         );
     }
